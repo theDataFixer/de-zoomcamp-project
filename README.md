@@ -43,17 +43,17 @@ I know using GCS is part of the evaluation criteria, however, I intentionally di
 
 ### Prerequisites
 
-- [Docker installed](https://docs.docker.com/engine/install/)
-- [Python installed](https://www.python.org/downloads/)
-- [Terraform installed](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
+- **[Docker installed](https://docs.docker.com/engine/install/)**
+- **[Python installed](https://www.python.org/downloads/)**
+- **[Terraform installed](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)**
 - **Make**: While `make` is readily available and commonly used on Linux and macOs, it is not included by default in windows. Using [Chocolately](https://chocolatey.org/) (a package manager for windows) can be easily installed: `choco install make` 
 - **[Node.js installed](https://nodejs.org/en/download/)**: This is to run [Evidence.dev, "Build Polished data products with SQL"](https://evidence.dev/)
-- **[dlt credentials](https://dlthub.com/docs/walkthroughs/add_credentials): Click [here](https://dlthub.com/docs/walkthroughs/add_credentials) for instructions how to add credentials under .dlt/secrets.toml.
-- **[evicence.dev credentials](https://docs.evidence.dev/core-concepts/data-sources/): Click [here](https://docs.evidence.dev/core-concepts/data-sources/) to connect your local development environment to BigQuery.
-- **[Create Google Cloud Project](https://developers.google.com/workspace/guides/create-project)
-- **[Google Cloud Platform Credentials JSON](https://www.youtube.com/watch?v=rWcLDax-VmM)
+- **[dlt credentials](https://dlthub.com/docs/walkthroughs/add_credentials)**: Click [here](https://dlthub.com/docs/walkthroughs/add_credentials) for instructions how to add credentials under .dlt/secrets.toml.
+- **[evicence.dev credentials](https://docs.evidence.dev/core-concepts/data-sources/)**: Click [here](https://docs.evidence.dev/core-concepts/data-sources/) to connect your local development environment to BigQuery.
+- **[Create Google Cloud Project](https://developers.google.com/workspace/guides/create-project)**
+- **[Google Cloud Platform Credentials JSON](https://www.youtube.com/watch?v=rWcLDax-VmM)**
 - **[DuckDB](https://duckdb.org/#quickinstall)**: This is completely optional, but in case you want to test your dlt python script locally, install DuckDB. 
-- **[Generate API Key from TMDB themoviedb.org](https://developer.themoviedb.org/docs/getting-started)
+- **[Generate API Key from TMDB themoviedb.org](https://developer.themoviedb.org/docs/getting-started)**
 
 
 ### Set up environment variables
