@@ -12,24 +12,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
       - name: Set up Python 3.11
         uses: actions/setup-python@v2
         with:
           python-version: "3.11"
-      - name: Install uv tool
+
+      - name: Install uv tool, dependencies, and run tests
         run: |
           python -m pip install --upgrade pip
           pip install uv  # Install uv using pip
-      - name: Create and activate vritual environment
-        run: |
           uv venv
           source .venv/bin/activate
-      - name: Install dependencies with uv
-        run: |
           if [ -f requirements.txt ]; then uv pip install -r requirements.txt; fi
-      - name: Install test dependencies
-        run: |
           uv pip install pytest requests-mock requests
-      - name: Run tests
-        run: |
           pytest dlt_bigquery/tests/test_utils.py
