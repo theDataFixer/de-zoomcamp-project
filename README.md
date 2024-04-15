@@ -20,6 +20,15 @@ This pipeline is designed to streamline the process of data extraction, loading,
     <img src="images/bi_as_code.png">
 </p>
 
+## ER diagrams
+<p align="center">
+    <img src="images/themoviedb-content_details.png">
+</p>
+<p align="center">
+    <img src="images/themoviedb-trending.png">
+</p>
+
+
 ## Technologies used
 - **dlt (Data Load Tool)**: For extracting and loading data into Google Bigquery.
 - **dbt (Data Build Tool)**: For transforming data within BigQuery.
@@ -36,8 +45,7 @@ I know using GCS is part of the evaluation criteria, however, I intentionally di
 
 1. **Data Volume**: The data volume from TMDb API is manageable within BigQuery without the need for intermediate storage.
 2. **Complexity and Cost**: Avoiding GCS simplifies the architecture and reduces costs associated with storage and data transfer, especially beneficial for small to medium datasets.
-3. **Direct Integration**: BigQuery directly integrates with external APIs like TMDb, enabling streamlined data ingestion and processing without the need for an additional storage layer.
-4. **Misconceptions about "Data Lake"**: New data engineers often believe that integrating cloud storage like Google Coud Storage (GCS) or AWS S3 is a mandatory step in data pipelines. However, this is not always necessary and can sometimes introduce unneccesary complexity and costs. In scenarios where data can be directly ingested and processed by data warehousing solutions like BigQuery, bypassing intermediate cloud storage can streamline workflows and reduce overhead.
+3. **Misconceptions about "Data Lake"**: New data engineers often believe that integrating cloud storage like Google Coud Storage (GCS) or AWS S3 is a mandatory step in data pipelines. However, this is not always necessary and can sometimes introduce unneccesary complexity and costs. In scenarios where data can be directly ingested and processed by data warehousing solutions like BigQuery, bypassing intermediate cloud storage can streamline workflows and reduce overhead.
 
 ## Getting Started
 
@@ -49,7 +57,7 @@ I know using GCS is part of the evaluation criteria, however, I intentionally di
 - **Make**: While `make` is readily available and commonly used on Linux and macOs, it is not included by default in windows. Using [Chocolately](https://chocolatey.org/) (a package manager for windows) can be easily installed: `choco install make` 
 - **[Node.js installed](https://nodejs.org/en/download/)**: This is to run [Evidence.dev, "Build Polished data products with SQL"](https://evidence.dev/)
 - **[dlt credentials](https://dlthub.com/docs/walkthroughs/add_credentials)**: Click [here](https://dlthub.com/docs/walkthroughs/add_credentials) for instructions how to add credentials under .dlt/secrets.toml.
-- **[evicence.dev credentials](https://docs.evidence.dev/core-concepts/data-sources/)**: Click [here](https://docs.evidence.dev/core-concepts/data-sources/) to connect your local development environment to BigQuery.
+- **[evicence.dev credentials](https://docs.evidence.dev/core-concepts/data-sources/)**: Click [here](https://docs.evidence.dev/core-concepts/data-sources/) for instructions to connect your local development environment to BigQuery.
 - **[Create Google Cloud Project](https://developers.google.com/workspace/guides/create-project)**
 - **[Google Cloud Platform Credentials JSON](https://www.youtube.com/watch?v=rWcLDax-VmM)**
 - **[DuckDB](https://duckdb.org/#quickinstall)**: This is completely optional, but in case you want to test your dlt python script locally, install DuckDB. 
