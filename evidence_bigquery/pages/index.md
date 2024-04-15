@@ -2,7 +2,11 @@
 title: Trending and Popular Media Analysis – A TMDb Data Study
 ---
 
+_This product uses the TMDB API but is not endorsed or certified by TMDB._
+
 ---
+
+![themoviedb image](/themoviedb.png)
 
 ## Introduction
 This presents a comprehensive analysis of media trends based on data sourced from The Movie Database (TMDb). The goal is to uncover insights into the popularity and release patterns of movies and TV series, helping media professionals and enthusiasts understand what content captures viewers' interest.
