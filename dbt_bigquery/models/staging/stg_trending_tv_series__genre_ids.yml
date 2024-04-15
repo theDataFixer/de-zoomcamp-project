@@ -1,0 +1,19 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_trending_tv_series__genre_ids
+    description: "Staging trending tv series genre ids"
+    columns:
+      - name: trending_tv_series_genre_id_value
+        description: "Trending tv series genre id"
+
+      - name: _dlt_id
+        description: "data load tool id"
+        test:
+          - not_null
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        test:
+          - not_null

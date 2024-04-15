@@ -1,0 +1,81 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: mart_popular_granular
+    description: "Granular popular content mart"
+    columns:
+      - name: content_type
+        description: "The type of the content, either Movie or TV Series."
+
+      - name: content_budget
+        description: "The budget allocated for the content, applicable to movies."
+
+      - name: content_popularity
+        description: "Popularity score of the content."
+
+      - name: content_revenue
+        description: "Revenue generated from the content, applicable to movies."
+
+      - name: content_vote_average
+        description: "Average vote score the content has received."
+
+      - name: content_vote_count
+        description: "Total number of votes the content has received."
+
+      - name: content_review_author_rating
+        description: "Rating given by the author of the review."
+
+      - name: content_similar_popularity
+        description: "Popularity score of similar content."
+
+      - name: content_similar_vote_average
+        description: "Average vote score similar content has received."
+
+      - name: content_similar_vote_count
+        description: "Total number of votes similar content has received."
+
+      - name: content_original_language
+        description: "The original language of the content."
+
+      - name: content_overview
+        description: "A brief description or overview of the content."
+
+      - name: content_release_date
+        description: "The release date"
+
+      - name: content_status
+        description: "The current status of the content, etc."
+
+      - name: content_tagline
+        description: "A short tagline or slogan associated with the content."
+
+      - name: content_title
+        description: "The title of the content."
+
+      - name: content_genre_name
+        description: "The name of the genre associated with the content."
+
+      - name: content_review_author_name
+        description: "The name of the author who wrote the review."
+
+      - name: content_review_author_content
+        description: "The content of the review written by the author."
+
+      - name: content_review_author_created_at
+        description: "The timestamp when the review was created."
+
+      - name: content_review_author_updated_at
+        description: "The timestamp when the review was last updated."
+
+      - name: content_review_url
+        description: "The URL to access the full review."
+
+      - name: content_similar_overview
+        description: "An overview of similar content."
+
+      - name: content_similar_release_date
+        description: "The release date of similar content."
+
+      - name: content_similar_title
+        description: "The title of similar content."

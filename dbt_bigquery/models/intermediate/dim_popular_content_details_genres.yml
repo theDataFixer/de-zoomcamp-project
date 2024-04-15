@@ -1,0 +1,23 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: dim_popular_content_details_genres
+    description: "Popular movies and tv series content details genres dimension table"
+    columns:
+      - name: dim_popular_content_details_genre_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: content_genre_id
+        description: "Content genre ID"
+
+      - name: content_genre_name
+        description: "Content genre name"
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null

@@ -1,0 +1,56 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_tv_series_details
+    descripton: "Staging tv series details"
+    columns:
+      - name: tv_series_first_air_date
+        description: "Date when the tv series was first aired"
+
+      - name: tv_series_homepage
+        description: "Link to tv series's homepage"
+
+      - name: tv_series_id
+        description: "TV series ID"
+        tests:
+          - not_null
+          - unique
+
+      - name: tv_series_in_production
+        description: "Is tv series in production"
+
+      - name: tv_series_last_air_date
+        description: "Date when the tv series was last aired"
+
+      - name: tv_series_name
+        description: "Name of tv series"
+
+      - name: tv_series_number_of_seasons
+        description: "Number of seasons"
+
+      - name: tv_series_original_language
+        description: "Original language of tv series"
+
+      - name: tv_series_overview
+        description: "Overview of tv series"
+
+      - name: tv_series_popularity
+        description: "Popularity of tv series"
+
+      - name: tv_series_status
+        description: "Status of tv series"
+
+      - name: tv_series_tv_series_type
+        description: "Type of tv series"
+
+      - name: tv_series_vote_average
+        description: "Average vote of tv series"
+
+      - name: tv_series_vote_count
+        description: "Number of votes of tv series"
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null

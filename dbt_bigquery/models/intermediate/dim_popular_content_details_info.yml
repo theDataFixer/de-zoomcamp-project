@@ -1,0 +1,38 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: dim_popular_content_details_info
+    description: "Popular movies and tv series content details info dimension table"
+    columns:
+      - name: dim_popular_content_details_info_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null
+
+      - name: content_type
+        description: "Content type (movie or tv series)"
+
+      - name: content_id
+        description: "Content ID"
+
+      - name: content_original_language
+        description: "Content original language"
+
+      - name: content_overview
+        description: "Content overview"
+
+      - name: content_release_date
+        description: "Content release date"
+
+      - name: content_status
+        description: "Content status"
+
+      - name: content_title
+        description: "Content title"

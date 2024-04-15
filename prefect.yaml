@@ -1,0 +1,28 @@
+# Generic metadata about this project
+name: dlt_bigquery_dbt
+prefect-version: 2.0
+
+# Optional: Define Docker build if your flows require a specific Docker image
+# build:
+#   - prefect_docker.deployments.steps.build_docker_image:
+#       id: build-image
+#       requires: prefect-docker>=0.4.0
+#       image_name: "your_docker_image_name"
+#       tag: latest
+#       dockerfile: Dockerfile # Ensure this points to the correct Dockerfile path
+
+deployments:
+- name: elt_prefect
+  version:
+  tags: []
+  description:
+  entrypoint: prefect_flows.py:elt_flow
+  parameters: {}
+  work_pool:
+    name: pool_dlt_dbt
+    work_queue_name:
+    job_variables: {}
+  schedules: []
+  pull:
+  - prefect.deployments.steps.set_working_directory:
+      directory: ${WORKING_DIRECTORY}

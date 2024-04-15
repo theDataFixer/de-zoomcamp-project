@@ -1,0 +1,32 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: dim_trending_info
+    description: "Trending info movies and tv series dimension"
+    columns:
+      - name: dim_trending_info_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null
+
+      - name: trending_type
+        description: "Trending type"
+
+      - name: trending_title
+        description: "Trending title"
+
+      - name: trending_original_language
+        description: "Trending original language"
+
+      - name: trending_overview
+        description: "Trending overview"
+
+      - name: trending_release_date
+        description: "Trending release date"

@@ -1,0 +1,26 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: dim_genres
+    description: "Genres dimension"
+    columns:
+      - name: dim_genres_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null
+
+      - name: genre_type
+        description: "Genre type"
+
+      - name: genre_id
+        description: "Genre id"
+
+      - name: genre_name
+        description: "Genre name"

@@ -1,0 +1,24 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: mart_trending_performance
+    description: "Trending performance mart"
+    columns:
+      - name: trending_type
+        description: "The type of the trending content, indicating whether it is a Movie or TV Series."
+
+      - name: genre_name
+        description: "The genre of the trending content, helping to categorize content into thematic or stylistic groups for analysis."
+
+      - name: trending_popularity
+        description: "A custom aggregation of popularity metrics for the trending content, calculated using the 'stat_aggregations' macro to provide a comprehensive measure of how popular each genre and content type is."
+
+      - name: avg_trending_vote_average
+        description: "The average of voting scores received by the content within each genre and type, providing an indicator of overall audience approval or appreciation."
+
+      - name: trending_total_votes
+        description: "The sum of all votes received by the content within each genre and type, showing the extent of audience engagement."
+
+      - name: content_count
+        description: "The count of content items within each specified genre and content type, indicating the volume of content available."

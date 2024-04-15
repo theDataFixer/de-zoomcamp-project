@@ -1,0 +1,13 @@
+**/.git
+**/node_modules
+**/.env
+**/secrets.toml
+**/*.log
+**/data
+**/temp
+**/*.md
+evidence_bigquery/
+**/.dlt/
+**/logs/
+**/dlt_duckdb/
+**/connection.options.yaml

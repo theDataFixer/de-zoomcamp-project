@@ -1,0 +1,43 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_movie_details__similar__results
+    description: "Staging movie details similar results"
+    columns:
+      - name: movie_similar_id
+        description: "The movie id of the similar movie"
+        tests:
+          - unique
+          - not_null
+
+      - name: movie_similar_original_language
+        description: "The language of the movie"
+
+      - name: movie_similar_overview
+        description: "The overview of the movie"
+
+      - name: movie_similar_popularity
+        description: "The popularity of the movie"
+
+      - name: movie_similar_release_date
+        description: "The release date of the movie"
+
+      - name: movie_similar_title
+        description: "The title of the movie"
+
+      - name: movie_similar_vote_average
+        description: "The vote average of the movie"
+
+      - name: movie_similar_vote_count
+        description: "The vote count of the movie"
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null

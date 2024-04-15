@@ -1,0 +1,40 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_movie_details__reviews__results
+    description: "Staging movie details reviews results"
+    columns:
+      - name: movie_review_author_name
+        description: "The author of the review"
+
+      - name: movie_review_author_rating
+        description: "The rating of the review author"
+
+      - name: movie_review_authour_content
+        description: "The content of the review"
+
+      - name: movie_review_author_created_at
+        description: "The created date of the review"
+
+      - name: movie_review_id
+        description: "The id of the review"
+        tests:
+          - unique
+          - not_null
+
+      - name: movie_review_author_updated_at
+        description: "The updated date of the review"
+
+      - name: movie_review_url
+        description: "The url of the review"
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null

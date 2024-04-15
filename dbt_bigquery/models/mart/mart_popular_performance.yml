@@ -1,0 +1,24 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: mart_popular_performance
+    description: "Popular content perfromance mart"
+    columns:
+      - name: content_type
+        description: "The type of the content, either Movie or TV Series, indicating the category of each entry."
+
+      - name: content_genre_name
+        description: "The name of the genre associated with the content. This field helps categorize the content into various genre buckets for detailed analysis."
+
+      - name: content_popularity
+        description: "Aggregated popularity metrics, calculated as per the stat_aggregations macro, reflecting how popular each content type is within its genre."
+
+      - name: avg_vote_average
+        description: "The average of the vote averages for each content type within a genre, providing a measure of how well the content is rated by viewers."
+
+      - name: total_votes
+        description: "The total number of votes received for all content within each genre and content type category, indicating the extent of viewer engagement."
+
+      - name: content_count
+        description: "The count of content items within each content type and genre category, providing a simple measure of the volume of content available."

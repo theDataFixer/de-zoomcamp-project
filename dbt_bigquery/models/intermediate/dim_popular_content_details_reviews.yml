@@ -1,0 +1,35 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: dim_popular_content_details_reviews
+    description: "Popular movies and tv series content details reviews dimension table"
+    columns:
+      - name: dim_popular_content_details_reviews_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null
+
+      - name: content_review_author_name
+        description: "Author name of the review"
+
+      - name: content_review_author_content
+        description: "Author content of the review"
+
+      - name: content_review_author_created_at
+        description: "Created time of the review"
+
+      - name: content_review_id
+        description: "Review id"
+
+      - name: content_review_author_updated_at
+        description: "Updated time of the review"
+
+      - name: content_review_url
+        description: "Review url"

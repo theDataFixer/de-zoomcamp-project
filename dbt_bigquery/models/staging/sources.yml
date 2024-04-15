@@ -1,0 +1,23 @@
+# Needed for every dbt yml file - https://docs.getdbt.com/faqs/project/why-version-2
+version: 2
+
+sources:
+  - name: movie_data # schema or in this case the 'dataset' in bigquery
+    # database <> project are interchangeable in dbt-bigquery
+    # project is specific to just dbt-bigquery, whereas database can be used with anything - e.g. Snowflake
+    database: zoomcamp-419608
+    tables:
+      - name: movie_details
+      - name: movie_details__genres
+      - name: movie_details__reviews__results
+      - name: movie_details__similar__results
+      - name: trending_movies
+      - name: trending_movies__genre_ids
+      - name: trending_tv_series
+      - name: trending_tv_series__genre_ids
+      - name: tv_series_details
+      - name: tv_series_details__genres
+      - name: tv_series_details__reviews__results
+      - name: tv_series_details__similar__results
+      - name: genres_movie
+      - name: genres_tv_series

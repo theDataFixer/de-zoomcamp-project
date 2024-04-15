@@ -1,0 +1,50 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: fct_popular_content_details
+    description: "Popular movies and tv series content details fact table"
+    columns:
+      - name: fct_popular_content_details_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null
+
+      - name: content_id
+        description: "Content id"
+
+      - name: content_type
+        description: "Content type"
+
+      - name: content_budget
+        description: "Content budget"
+
+      - name: content_popularity
+        description: "Content popularity"
+
+      - name: content_revenue
+        description: "Content revenue"
+
+      - name: content_vote_average
+        description: "Content vote average"
+
+      - name: content_vote_count
+        description: "Content vote count"
+
+      - name: content_review_author_rating
+        description: "Content review author rating"
+
+      - name: content_similar_popularity
+        description: "Content similar popularity"
+
+      - name: content_similar_vote_average
+        description: "Content similar vote average"
+
+      - name: content_similar_vote_count
+        description: "Content similar vote count"

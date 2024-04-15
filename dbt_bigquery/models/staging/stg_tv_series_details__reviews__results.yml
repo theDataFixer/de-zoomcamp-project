@@ -1,0 +1,40 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_tv_series_details__reviews__results
+    description: "Staging tv series details reviews results"
+    columns:
+      - name: tv_series_review_author
+        description: "The author of the review"
+
+      - name: tv_series_review_author_details_rating
+        description: "The rating of the review author"
+
+      - name: tv_series_review_authorcontent
+        description: "The content of the review"
+
+      - name: tv_series_review_authorcreated_at
+        description: "The created date of the review"
+
+      - name: tv_series_review_id
+        description: "The id of the review"
+        tests:
+          - unique
+          - not_null
+
+      - name: tv_series_review_author_updated_at
+        description: "The updated date of the review"
+
+      - name: tv_series_review_url
+        description: "The url of the review"
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null

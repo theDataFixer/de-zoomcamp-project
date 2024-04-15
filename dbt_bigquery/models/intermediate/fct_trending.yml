@@ -1,0 +1,33 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: fct_trending
+    description: "Fact trending movies and tv shows"
+    columns:
+      - name: fct_trending_sk
+        description: "Surrogate key"
+        type: number
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null
+
+      - name: trending_id
+        description: "Trending id"
+
+      - name: trending_type
+        description: "Trending type"
+
+      - name: trending_popularity
+        description: "Trending popularity"
+
+      - name: trending_vote_average
+        description: "Trending vote average"
+
+      - name: trending_vote_count
+        description: "Trending vote count"

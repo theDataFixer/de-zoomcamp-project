@@ -1,0 +1,5 @@
+# This file was automatically generated
+name: movie_dbt
+type: bigquery
+options:
+  authenticator: service-account

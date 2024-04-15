@@ -1,0 +1,38 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_trending_movies
+    description: "Staging trending movies"
+    columns:
+      - name: trending_movie_id
+        description: "Movie id"
+        tests:
+          - unique
+          - not_null
+
+      - name: trending_movie_title
+        description: "Movie title"
+
+      - name: trending_movie_original_language
+        description: "Movie original language"
+
+      - name: trending_movie_overview
+        description: "Movie overview"
+
+      - name: trending_movie_popularity
+        description: "Movie popularity"
+
+      - name: trending_movie_release_date
+        description: "Movie release date"
+
+      - name: trending_movie_vote_average
+        description: "Movie vote average"
+
+      - name: trending_movie_vote_count
+        description: "Movie vote count"
+
+      - name: _dlt_id
+        descripton: "data load tool id"
+        tests:
+          - not_null

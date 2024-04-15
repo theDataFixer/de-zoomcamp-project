@@ -1,0 +1,14 @@
+version: 2
+
+models:
+  - name: mart_trending_release_timeline
+    description: "Trending release timeline mart"
+    columns:
+      - name: trending_type
+        description: "The type of the trending content, such as Movie or TV Series, which categorizes each entry."
+
+      - name: release_month
+        description: "The month and year when the content was released. Dates are truncated to the first day of each month for consistent grouping and comparison."
+
+      - name: trending_count
+        description: "The count of trending content items released during each month, aggregated by content type. This measure provides insights into the volume of content releases and helps identify peaks or trends in content availability."

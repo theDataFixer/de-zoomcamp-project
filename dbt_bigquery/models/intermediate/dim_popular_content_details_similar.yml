@@ -1,0 +1,29 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: dim_popular_content_details_similar
+    description: "Popular movies and tv series content details similar dimension table"
+    columns:
+      - name: dim_popular_content_details_similar_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null
+
+      - name: content_similar_id
+        description: "Content similar id"
+
+      - name: content_similar_overview
+        description: "Content similar overview"
+
+      - name: content_similar_release_date
+        description: "Content similar release date"
+
+      - name: content_similar_title
+        description: "Content similar title"

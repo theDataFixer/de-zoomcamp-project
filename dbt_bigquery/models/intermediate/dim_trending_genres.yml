@@ -1,0 +1,20 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: dim_trending_genres
+    description: "Trending genres dimension"
+    columns:
+      - name: dim_trending_genres_sk
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null
+
+      - name: genre_id
+        description: "Genre id"

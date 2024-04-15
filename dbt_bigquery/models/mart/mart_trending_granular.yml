@@ -1,0 +1,36 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: mart_trending_granular
+    description: "Granular trending content mart"
+    columns:
+      - name: trending_id
+        description: "The unique identifier for the trending content."
+
+      - name: trending_type
+        description: "The type of trending content, such as Movie or TV Series."
+
+      - name: trending_popularity
+        description: "A measure of the popularity of the content."
+
+      - name: trending_vote_average
+        description: "The average vote or rating the content has received."
+
+      - name: trending_vote_count
+        description: "The total number of votes or ratings the content has received."
+
+      - name: trending_title
+        description: "The title of the trending content."
+
+      - name: trending_original_language
+        description: "The original language in which the content was produced."
+
+      - name: trending_overview
+        description: "A brief overview or description of the content."
+
+      - name: trending_release_date
+        description: "The release date of the content."
+
+      - name: genre_name
+        description: "The genre associated with the content, providing a categorization based on content themes or styles."

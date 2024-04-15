@@ -1,0 +1,25 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_tv_series_details__genres
+    description: "Staging tv series details genres"
+    columns:
+      - name: tv_series_genre_id
+        description: "Unique identifier for tv series genre"
+        tests:
+          - unique
+          - not_null
+
+      - name: tv_series_genre_name
+        description: "Name of tv series genre"
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        test:
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        test:
+          - not_null

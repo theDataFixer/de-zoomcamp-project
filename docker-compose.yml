@@ -1,0 +1,54 @@
+services:
+  dozzle:
+    container_name: dozzle
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 9999:8080
+
+  dlt_bigquery:
+    build:
+      context: ./dlt_bigquery # Directory containing Dockerfile and dlt file | BigQuery
+      dockerfile: Dockerfile
+    volumes:
+      - ./dlt_bigquery/.dlt/secrets.toml:/app/.dlt/secrets.toml # Define your api keys & variables
+      - ./dlt_bigquery/.dlt/config.toml:/app/.dlt/config.toml # Define logging
+    command: ["python", "main.py"]
+    networks:
+      - elt_network
+
+  # dlt_duckdb: # Use it in case you want to use DuckDB instead of BigQuery
+  # build:
+  #   context: ./dlt_duckdb # Directory containing Dockerfile and dlt file | DuckDB
+  #   dockerfile: Dockerfile
+  # volumes:
+  #   - ./dlt_duckdb/.dlt/secrets.toml:/app/.dlt/secrets.toml # Define your api keys & variables
+  #   - ./dlt_duckdb/.dlt/config.toml:/app/.dlt/config.toml # Define logging
+  # command: ["python", "main.py"] # For clarity and flexibility
+  # networks:
+  #   - elt_network
+
+  dbt:
+    image: ghcr.io/dbt-labs/dbt-bigquery:1.7.7
+    entrypoint: ["/bin/sh", "-c"]
+    working_dir: /dbt
+    command:
+      [
+        "ls -al /dbt && ls -al /keys && dbt deps && dbt run --profiles-dir /root/.dbt --project-dir /dbt",
+      ]
+    networks:
+      - elt_network
+    volumes:
+      - ${DBT_FILE_PATH}:/keys
+      - ./dbt_bigquery:/dbt
+      - ~/.dbt:/root/.dbt
+    depends_on:
+      - dlt_bigquery
+    environment:
+      - DBT_PROFILE=default
+      - DBT_TARGET=dev
+
+networks:
+  elt_network:
+    driver: bridge

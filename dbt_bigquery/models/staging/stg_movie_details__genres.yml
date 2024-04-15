@@ -1,0 +1,23 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_movie_details__genres
+    description: "Staging movie details genres"
+    columns:
+      - name: movie_genre_id
+        description: "Movie genre ID"
+        tests:
+          - unique
+          - not_null
+
+      - name: movie_genre_name
+        description: "Movie genre name"
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null

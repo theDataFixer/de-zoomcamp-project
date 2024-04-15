@@ -1,0 +1,38 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_trending_tv_series
+    description: "Staging trending tv series"
+    columns:
+      - name: trending_tv_series_id
+        description: "TV Series ID"
+        tests:
+          - unique
+          - not_null
+
+      - name: trending_tv_series_name
+        description: "TV Series Name"
+
+      - name: trending_tv_series_original_language
+        description: "TV Series Original Language"
+
+      - name: trending_tv_series_overview
+        description: "TV Series Overview"
+
+      - name: trending_tv_series_popularity
+        description: "TV Series Popularity"
+
+      - name: trending_tv_series_first_air_date
+        description: "TV Series First Air Date"
+
+      - name: trending_tv_series_vote_average
+        description: "TV Series Vote Average"
+
+      - name: trending_tv_series_vote_count
+        description: "TV Series Vote Count"
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null

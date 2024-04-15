@@ -1,0 +1,43 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: stg_tv_series_details__similar__results
+    description: "Staging tv series details similar results"
+    columns:
+      - name: tv_series_similar_id
+        description: "Similar tv series id"
+        tests:
+          - unique
+          - not_null
+
+      - name: tv_series_similar_original_language
+        description: "Original language"
+
+      - name: tv_series_similar_overview
+        description: "Overview of tv series"
+
+      - name: tv_series_similar_popularity
+        description: "Popularity of tv series"
+
+      - name: tv_series_similar_first_air_date
+        description: "First air date of tv series"
+
+      - name: tv_series_similar_name
+        description: "Name of tv series"
+
+      - name: tv_series_similar_vote_average
+        description: "Average vote of tv series"
+
+      - name: tv_series_similar_vote_count
+        description: "Number of votes of tv series"
+
+      - name: _dlt_parent_id
+        description: "data load tool parent id"
+        tests:
+          - not_null
+
+      - name: _dlt_id
+        description: "data load tool id"
+        tests:
+          - not_null

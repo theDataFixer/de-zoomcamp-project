@@ -1,0 +1,15 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: mart_popular_release_timeline
+    description: "Popular release timeline mart"
+    columns:
+      - name: content_type
+        description: "The type of content, either Movie or TV Series, categorizing the entries in the release timeline."
+
+      - name: release_month
+        description: "The month and year when the content was released, truncated to the first day of the month for grouping purposes."
+
+      - name: trending_count
+        description: "The count of content items released during each month for each content type, useful for identifying trends and changes in content release volume over time."

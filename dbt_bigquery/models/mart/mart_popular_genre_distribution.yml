@@ -1,0 +1,15 @@
+version: 2
+
+# Create dbt model
+models:
+  - name: mart_popular_genre_distribution
+    description: "Popular genre distribution mart"
+    columns:
+      - name: content_type
+        description: "The type of the content, either Movie or TV Series."
+
+      - name: content_genre_name
+        description: "The name of the genre associated with the content."
+
+      - name: content_count
+        description: "The count of unique content items within each genre and content type combination."
