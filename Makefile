@@ -8,8 +8,6 @@ help:
 	@echo "  make activate_venv               - Instructions to activate python virtual environment"
 	@echo "  make run_prefect_server          - Runs prefect localhost server"
 	@echo "  make deploy_prefect              - Deploys Prefect flows"
-	@echo "  make run_docker                  - Runs docker-compose up for the entire stack"
-	@echo "  make delete_docker               - Prunes everything in docker"
 	@echo "  make start_evidence              - Sets up and runs the evidence.dev project"
 
 setup_uv:
@@ -29,12 +27,6 @@ run_prefect_server:
 
 deploy_prefect:
 	@prefect deploy -n elt_prefect
-
-run_docker:
-	@docker-compose up
-
-delete_docker:
-	@docker system prune -a --volumes
 
 start_evidence:
 	@cd evidence_bigquery && npm install && npm run sources && npm run dev

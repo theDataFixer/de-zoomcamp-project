@@ -12,17 +12,17 @@ prefect-version: 2.0
 #       dockerfile: Dockerfile # Ensure this points to the correct Dockerfile path
 
 deployments:
-- name: elt_prefect
-  version:
-  tags: []
-  description:
-  entrypoint: prefect_flows.py:elt_flow
-  parameters: {}
-  work_pool:
-    name: pool_dlt_dbt
-    work_queue_name:
-    job_variables: {}
-  schedules: []
-  pull:
-  - prefect.deployments.steps.set_working_directory:
-      directory: ${WORKING_DIRECTORY}
+  - name: elt_prefect
+    version:
+    tags: []
+    description:
+    entrypoint: prefect_flows.py:elt_flow
+    parameters: {}
+    work_pool:
+      name:
+      work_queue_name:
+      job_variables: {}
+    schedules: []
+    pull:
+      - prefect.deployments.steps.set_working_directory:
+          directory: /home/tux/theDataFixer/tutorials/zoomcamp_project

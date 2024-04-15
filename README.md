@@ -58,12 +58,13 @@ I know using GCS is part of the evaluation criteria, however, I intentionally di
 
 ### Set up environment variables
 
-Be sure to create `.env` file, and ensure is configured correctly for your dbt `profiles.yml` and optionally for your `prefect.deployments.steps.set_working_directory` working directory. 
+Be sure to create `.env` file, and ensure is configured correctly for your dbt `profiles.yml` 
 
 ### Configurations
 
 * **dbt Configuration**: Ensure `~/.dbt/profiles.yml` is correctly set up to connect to your BigQuery instance.
 * **dlt Configuration**: Update `secrets.toml` under `.dlt/` with your keys from themoviedb.org and Google BigQuery .
+* **prefect Configuration**: Ensure to change in prefect.yaml your `prefect.deployments.steps.set_working_directory`
 
 ### Terraform
 
@@ -105,8 +106,6 @@ Usage:
   make activate_venv               - Instructions to activate python virtual environment
   make run_prefect_server          - Runs prefect localhost server
   make deploy_prefect              - Deploys Prefect flows
-  make run_docker                  - Runs docker-compose up for the entire stack
-  make delete_docker               - Prunes everything in docker
   make start_evidence              - Sets up and runs the evidence.dev project
 ```
 
@@ -142,8 +141,6 @@ make install_dependencies
 
 ### Usage
 
-You can either use `docker-compose up` or use Prefect Orchestrator.
-
 * Start Prefect Server:
 ```bash
 make run_prefect_server
@@ -154,15 +151,19 @@ make run_prefect_server
 make deploy_prefect
 ```
 
-* Run Docker Compose:
-```bash
-make run_docker
-```
-
 * Start and use Evidence.dev:
 ```bash
 make start_evidence
 ```
+
+#### NOTE:
+In case you get error in Prefect `sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) database is locked` then you should change your database to postgresql. Instructions [here](https://docs.prefect.io/latest/guides/host/#prefect-database)
+
+In short, run:
+`docker run -d --name prefect-postgres -v prefectdb:/var/lib/postgresql/data -p 5432:5432 -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=yourTopSecretPassword -e POSTGRES_DB=prefect postgres:latest`
+
+And then:
+`prefect config set PREFECT_API_DATABASE_CONNECTION_URL="postgresql+asyncpg://postgres:yourTopSecretPassword@localhost:5432/prefect"`
 
 ---
 
