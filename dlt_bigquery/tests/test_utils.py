@@ -1,7 +1,8 @@
 import pytest
 import requests
 import requests_mock
-from utils.functions import fetch_data
+
+from ..utils.functions import fetch_data
 
 
 @pytest.fixture
