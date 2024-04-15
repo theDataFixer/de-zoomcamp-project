@@ -11,6 +11,7 @@ setup(
         "dlt[duckdb]>=0.4.7",
         "dlt[bigquery]>=0.4.7",
         "alive-progress>=3.1.5",
+        "prefect >= 2.17.1",
     ],
     python_requires=">=3.11",
 )
