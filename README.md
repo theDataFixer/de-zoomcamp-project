@@ -151,6 +151,8 @@ make run_prefect_server
 make deploy_prefect
 ```
 
+After deploy, you'll get a message in terminal to start worker with your chosen pool name, and go to localhost:4200 and run workflow.
+
 * Start and use Evidence.dev:
 ```bash
 make start_evidence
